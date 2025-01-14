@@ -1,0 +1,82 @@
+{% extends 'base.html' %}
+{% block title %}Search{% endblock %}
+{% block content %}
+    <header class="py-3 mb-3 container">
+        <p>Insira o arquivo VCF</p>
+        <div class="d-flex align-items-center">
+            <form class="w-100 me-3 d-flex"
+                  role="search"
+                  method="POST"
+                  enctype="multipart/form-data">
+                <input type="file"
+                       name="search"
+                       id="search"
+                       class="form-control"
+                       placeholder="Search the sequences"
+                       aria-label="Search">
+                <button type="submit" class="btn btn-success me-2 ms-2">Anotar</button>
+            </form>
+        </div>
+    </header>
+    <body>
+        {% if error %}<div class="error container">{{ error }}</div>{% endif %}
+        {% if data %}
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th scope="col">ID</th>
+                        <th scope="col">CHROM</th>
+                        <th scope="col">REF</th>
+                        <th scope="col">ALT</th>
+                        <th scope="col">Population Allele Frequency</th>
+                        <th scope="col">Var Class</th>
+                        <th scope="col">Most Severe Consequence</th>
+                        <th scope="col">Clinical Significance</th>
+                        <th scope="col">Synonyms</th>
+                        <th scope="col">Ambiguity</th>
+                        <th scope="col">Minor Allele</th>
+                        <th scope="col">Mappings</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for data in data %}
+                        <tr>
+                            <td>{{ data['name'] }}</td>
+                            {% for _, values in ref_alt[loop.index0].items() %}<td>{{ values }}</td>{% endfor %}
+                            <td>
+                                {% for study, freq in frequencies[loop.index0].items() %}
+                                    <div>
+                                        <strong>{{ study }}</strong>: {{ freq }}
+                                    </div>
+                                {% endfor %}
+                            </td>
+                            <td>{{ data['var_class'] }}</td>
+                            <td>{{ data['most_severe_consequence'] }}</td>
+                            <td>
+                                {{ data['clinical_significance'] | join("<br>") | safe or 'N/A' }}
+                            </td>
+                            <td>
+                                {{ data['synonyms']  | join("<br>") | safe }}
+                            </td>
+                            <td>{{ data['ambiguity'] }}</td>
+                            <td>{{ data['minor_allele'] or 'N/A' }}</td>
+                            <td>
+                                {% for mapping in data['mappings'] %}
+                                    <div>
+                                        <strong>Allele String:</strong> {{ mapping['allele_string'] }}
+                                        <br>
+                                        <strong>Coord System:</strong> {{ mapping['coord_system'] }}
+                                        <br>
+                                        <strong>Ancestral Allele:</strong> {{ mapping['ancestral_allele'] }}
+                                        <br>
+                                        <strong>Location:</strong> {{ mapping['location'] }}
+                                    </div>
+                                {% endfor %}
+                            </td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        {% endif %}
+    </body>
+{% endblock %}

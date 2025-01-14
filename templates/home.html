@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% block title %}Home{% endblock %}
+{% block content %}
+    <section class="jumbotron text-center mt-5">
+        <div class="container">
+            <img src="{{ url_for('static', filename='images/main_logo.png') }}"
+                 width="300"
+                 height="200"
+                 alt="">
+            <p class="lead text-muted mb-5">Uma ferramenta para consulta e anotação de arquivos VCF</p>
+            <div class="d-flex justify-content-center">
+                <div class="d-flex flex-column w-50 ">
+                    <a href="{{ url_for("views.consult") }}"
+                       class="btn btn-outline-primary btn-lg btn-block mb-3">Consultar</a>
+                    <a href="{{ url_for("views.anotation") }}"
+                       class="btn btn-outline-success btn-lg btn-block">Anotar</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    <div class="container d-flex justify-content-center">
+        <video autoplay muted loop width = "400" height = "270">
+            <source src="{{ url_for('static', filename='videos/vid_logo.mp4') }}"
+                    type="video/mp4">
+        </video>
+    </div>
+{% endblock %}

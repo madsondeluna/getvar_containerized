@@ -1,0 +1,74 @@
+{% extends 'base.html' %}
+{% block title %}Search{% endblock %}
+{% block content %}
+    <header class="py-3 mb-3 container">
+        <p>Insira o arquivo VCF</p>
+        <div class="d-flex align-items-center">
+            <form class="w-100 me-3 d-flex"
+                  role="search"
+                  method="POST"
+                  enctype="multipart/form-data">
+                <input type="file"
+                       name="search"
+                       id="search"
+                       class="form-control"
+                       placeholder="Search the sequences"
+                       aria-label="Search" />
+                <button type="submit" class="btn btn-primary me-2 ms-2">Consultar</button>
+            </form>
+        </div>
+    </header>
+    {% if error %}<div class="error container">{{ error }}</div>{% endif %}
+    {% if table_html %}
+        <div class="container">
+            <!-- Linha para DP (min e max) -->
+            <div class="row mb-3">
+                <div class="col-md-6">
+                    <label for="dp-min" class="form-label">Minimum DP:</label>
+                    <input type="number"
+                           id="dp-min"
+                           class="form-control"
+                           min="0"
+                           max="100"
+                           value="0"
+                           step="1">
+                </div>
+                <div class="col-md-6">
+                    <label for="dp-max" class="form-label">Maximum DP:</label>
+                    <input type="number"
+                           id="dp-max"
+                           class="form-control"
+                           min="0"
+                           max="300"
+                           value="300"
+                           step="1">
+                </div>
+            </div>
+            <!-- Linha para AF (min e max) -->
+            <div class="row mb-3">
+                <div class="col-md-6">
+                    <label for="af-min" class="form-label">Minimum AF:</label>
+                    <input type="number"
+                           id="af-min"
+                           class="form-control"
+                           min="0"
+                           max="1"
+                           value="0"
+                           step="0.01">
+                </div>
+                <div class="col-md-6">
+                    <label for="af-max" class="form-label">Maximum AF:</label>
+                    <input type="number"
+                           id="af-max"
+                           class="form-control"
+                           min="0"
+                           max="1"
+                           value="1"
+                           step="0.01">
+                </div>
+            </div>
+        </div>
+        <div class="container text-left">{{ table_html|safe }}</div>
+    {% endif %}
+</div>
+{% endblock %}
