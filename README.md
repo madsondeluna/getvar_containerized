@@ -1,4 +1,6 @@
-# GET<i>Var</i> 🧬👨🏻‍💻
+# GET<i>Var</i> 🧬👨🏻‍💻 [DO NOT USE THIS VERSION ⚠️]
+
+# THE UPDATED AND FUCTIONAL VERSION IS AVAILABLE ON: https://github.com/madsondeluna/getvar_mvp
 
 O **GET<i>Var</i>** é uma ferramenta desenvolvida para **análise e anotação de variantes genéticas**. Com um workflow eficiente, a ferramenta integra dados de variantes genômicas para identificar e interpretar anotações de variantes de forma rápida e precisa em bancos de dados públicos.
 
