@@ -1,0 +1,7 @@
+{
+  "tasks": {
+    "build": "pip install -r requirements.txt && pip install snakemake",
+    "test": "snakemake",
+    "launch": "docker build -t getvar_containerized . && docker run -p 5000:5000 getvar_containerized"
+  }
+}
