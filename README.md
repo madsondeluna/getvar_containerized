@@ -106,6 +106,65 @@ Submeta um arquivo **VCF** através da interface web. O sistema processará os d
 
 As APIs REST do dbSNP, ClinVar e Ensembl possuem um limite de até 30 requisições por solicitação. Por isso, a aplicação pode apresentar instabilidade ou lentidão em alguns momentos. Além disso, os servidores dessas plataformas ocasionalmente podem ficar instáveis ou não responder adequadamente às requisições. Nesses casos, o manual das APIs recomenda a resubmissão dos dados para completar o processo de anotação.
 
+## Docker
+
+### Instalação e Uso
+
+Para construir e executar a aplicação usando Docker, siga os passos abaixo:
+
+1. Certifique-se de ter o Docker instalado em sua máquina. Você pode baixar e instalar o Docker a partir do [site oficial](https://www.docker.com/get-started).
+
+2. Clone o repositório:
+
+   ```bash
+   git clone https://github.com/madsondeluna/getvar_mvp.git
+   cd getvar_mvp
+   ```
+
+3. Construa a imagem Docker:
+
+   ```bash
+   docker build -t getvar_mvp .
+   ```
+
+4. Execute o contêiner Docker:
+
+   ```bash
+   docker run -p 5000:5000 getvar_mvp
+   ```
+
+5. Acesse a aplicação no navegador em:
+
+   ```
+   http://localhost:5000
+   ```
+
+## Como Colaborar
+
+Se você deseja colaborar com este projeto, siga os passos abaixo:
+
+1. Faça um fork do repositório.
+
+2. Crie uma nova branch para a sua feature ou correção de bug:
+
+   ```bash
+   git checkout -b minha-feature
+   ```
+
+3. Faça as alterações necessárias e commit:
+
+   ```bash
+   git commit -m "Adiciona minha feature"
+   ```
+
+4. Envie as alterações para o seu repositório forkado:
+
+   ```bash
+   git push origin minha-feature
+   ```
+
+5. Abra um Pull Request no repositório original.
+
 ## Licença
 
 Este projeto está licenciado sob a [Licença MIT](https://opensource.org/licenses/MIT). Consulte o arquivo LICENSE para mais informações.
