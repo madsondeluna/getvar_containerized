@@ -69,7 +69,7 @@ Certifique-se de ter as seguintes ferramentas instaladas:
 1. Clone o repositório:
 
    ```bash
-   git clone https://github.com/madsondeluna/getvar_mvp.git
+   git clone https://github.com/madsondeluna/getvar_containerized.git
    cd getvar_mvp
    ```
 
@@ -117,20 +117,20 @@ Para construir e executar a aplicação usando Docker, siga os passos abaixo:
 2. Clone o repositório:
 
    ```bash
-   git clone https://github.com/madsondeluna/getvar_mvp.git
+   git clone https://github.com/madsondeluna/getvar_containerized.git
    cd getvar_mvp
    ```
 
 3. Construa a imagem Docker:
 
    ```bash
-   docker build -t getvar_mvp .
+   docker build -t getvar_containerized .
    ```
 
 4. Execute o contêiner Docker:
 
    ```bash
-   docker run -p 5000:5000 getvar_mvp
+   docker run -p 5000:5000 getvar_containerized
    ```
 
 5. Acesse a aplicação no navegador em:
