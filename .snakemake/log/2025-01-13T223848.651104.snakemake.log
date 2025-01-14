@@ -1,0 +1,27 @@
+host: Mac
+Building DAG of jobs...
+Using shell: /bin/bash
+Provided cores: 8
+Rules claiming more threads will be scaled down.
+Job stats:
+job          count
+---------  -------
+all              1
+run_flask        1
+total            2
+
+Select jobs to execute...
+Execute 1 jobs...
+
+[Mon Jan 13 22:38:48 2025]
+localrule run_flask:
+    input: dependencies_installed
+    output: flask_running
+    jobid: 1
+    reason: Missing output files: flask_running
+    resources: tmpdir=/var/folders/_b/czss8ckx6dxfw7zkg7hg6fnm0000gn/T
+
+Terminating processes on user request, this might take some time.
+Complete log: .snakemake/log/2025-01-13T223848.651104.snakemake.log
+WorkflowError:
+At least one job did not complete successfully.
