@@ -165,6 +165,36 @@ Se você deseja colaborar com este projeto, siga os passos abaixo:
 
 5. Abra um Pull Request no repositório original.
 
+## Solução de Problemas
+
+Se você encontrar algum problema ao executar o aplicativo, considere as seguintes etapas de solução de problemas:
+
+1. **Aplicativo Flask Não Inicia**:
+   - Certifique-se de que o arquivo `main.py` está configurado corretamente com `host='0.0.0.0'` e `port=5000`.
+   - Verifique se há erros de sintaxe ou dependências ausentes no arquivo `main.py`.
+
+2. **Erros na Construção da Imagem Docker**:
+   - Verifique se os arquivos `Dockerfile` e `docker-compose.yml` estão configurados corretamente.
+   - Certifique-se de que todas as dependências necessárias estão listadas no arquivo `requirements.txt`.
+
+3. **Problemas no Workflow do Snakemake**:
+   - Verifique o diretório `.snakemake/log` para quaisquer logs de erro.
+   - Certifique-se de que o `Snakefile` está configurado corretamente com as regras `install_dependencies` e `run_flask`.
+
+4. **Problemas na Instalação de Dependências**:
+   - Certifique-se de que todos os pacotes necessários estão listados no arquivo `requirements.txt`.
+   - Verifique se as versões corretas dos pacotes estão instaladas.
+
+5. **Falhas nas Requisições de API**:
+   - Verifique a conexão de rede e certifique-se de que as APIs externas (dbSNP, ClinVar, Ensembl) estão acessíveis.
+   - Verifique se os endpoints da API e os parâmetros de requisição estão configurados corretamente no arquivo `api_getters.py`.
+
+6. **Problemas na Renderização de Templates HTML**:
+   - Certifique-se de que os templates HTML no diretório `templates` estão configurados corretamente e referenciados no arquivo `views.py`.
+   - Verifique se há erros de sintaxe ou variáveis ausentes nos templates.
+
+Se o problema persistir, considere buscar ajuda da comunidade ou consultar a documentação oficial das respectivas ferramentas e bibliotecas usadas no projeto.
+
 ## Licença
 
 Este projeto está licenciado sob a [Licença MIT](https://opensource.org/licenses/MIT). Consulte o arquivo LICENSE para mais informações.
@@ -176,3 +206,4 @@ Madson Aragão\
 [LinkedIn](https://www.linkedin.com/in/madsonaragao)
 
 🌟 <i>Created by Madson Aragão in somewhere, where bytes and biomolecules collide.</i>
+
